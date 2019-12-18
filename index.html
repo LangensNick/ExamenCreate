@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Project</title>
+        <meta name="description" content="This is my HTML5 boilerplate.">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="msapplication-TileColor" content="#3385FF">
+        <meta name="theme-color" content="#3385FF">
+
+        <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="image/flavicon.png">
+        <link rel="manifest" href="site.webmanifest">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+        <link rel="mask-icon" href="safari-pinned-tab.svg" color="#3385FF">
+        <script src="js/main.js"></script>
+        <link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/screen.css">        
+    </head>
+    <body>
+        <div>
+                <div id="hamburgerMenu" class="nav-hamburger">
+                        <div class="firstLine"></div>
+                        <div class="secondLine"></div>
+                        <div class="thirdLine"></div>
+                    </div>
+            <div id="nav" class="o-layout--nav c-favorites">
+                
+                <div class="o-row">
+                        <header class="o-container c-favorites__header">Favorites</header>
+                </div>
+                <ul id="favoritesList" class="o-layout c-favorites__movies--list">
+                       
+                </ul>
+            </div>
+            <div id="mainPage" class="o-layout o-layout__movieFrame">
+                <div class="o-container c-movieCard__frame o-container__movieFrame">
+                    <div class="c-movieCard ">
+                        <div id="movieCard" class="c-movieCard-imageFrame">
+                                <img src="" alt="" id="mainScreenImage" class="c-movieCard--image">
+                                <div class="c-movieCard__rating--frame">
+                                    <p id="mainScreenTitle" class="c-movieCard__rating--name"></p>
+                                    <p class="c-movieCard__rating--stars u-color-gold">★★★★★</p>
+                                    </div>
+                        </div>
+                                    
+                                
+
+                        <div class="o-layout o-layout--justify-space-between">
+                            <div id="c-divReject" class="c-divClose">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="47.608" height="47.608" viewBox="0 0 47.608 47.608" class="c-close--svg">
+                                        <g id="Group_2" data-name="Group 2" transform="translate(23.804 -18.514) rotate(45)">
+                                          <rect id="XArm" width="59.847" height="7.481" rx="3.74" transform="translate(0 26.183)" fill="#fb725c"/>
+                                          <rect id="XArm-2" data-name="XArm" width="59.847" height="7.481" rx="3.74" transform="translate(33.664 0) rotate(90)" fill="#fb725c"/>
+                                        </g>
+                                      </svg>
+                                      
+
+                            </div>
+                            <div id="c-divFavorite" class="c-divfavorite">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="65.04" height="61.788" viewBox="0 0 65.04 61.788" class="c-close--svg">
+                                        <path id="ic_star_24px" d="M34.52,51.658l20.1,12.13L49.284,40.927,67.04,25.545,43.658,23.561,34.52,2,25.382,23.561,2,25.545,19.756,40.927,14.423,63.788Z" transform="translate(-2 -2)" fill="#ffe600"/>
+                                      </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="detailPage" class="o-layout o-layout__detailPage">
+                <div class="o-layout o-layout--justify-end c-DetailPage--close">
+                        <div id="closeDetailPage" class="c-divClose">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="47.608" height="47.608" viewBox="0 0 47.608 47.608" class="c-close--svg">
+                            <g id="Group_2" data-name="Group 2" transform="translate(23.804 -18.514) rotate(45)">
+                              <rect id="XArm" width="59.847" height="7.481" rx="3.74" transform="translate(0 26.183)" fill="#fb725c"/>
+                              <rect id="XArm-2" data-name="XArm" width="59.847" height="7.481" rx="3.74" transform="translate(33.664 0) rotate(90)" fill="#fb725c"/>
+                            </g>
+                          </svg>
+                          </div>
+                </div>
+                <div class="o-layout c-detailPage--Content">
+                    <img src="" id="detailPoster" alt="" class="c-detailPage--image">
+                    <div class="c-detailPage--description">
+                            
+                                <header id="detailTitle" class="c-detailPage--title"></header>
+                           <p id="detailOverview">
+                           </p> 
+                           <div id="detailScore" class="c-detailPage--score">
+                           <p>9.5</p> 
+                        </div>
+                            
+                        </div>
+                    
+                </div>
+                <div id="detailPageTrailer" class="c-detailPage--trailer">
+                        <iframe width="560" class="c-detailVideo" id="detailMovie" height="315" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="o-layout u-1-of-1 c-detailPage__similarMovie">
+                    <p class="c-detailPage__siliarMovie--title">Similar Movies</p>
+                    <div class="o-layout u-1-of-1 ">
+                        <div id="detailPageSimilar" class="o-layout c-detailPage__similarMovie--itemFrame o-layout--justify-space-evenly">
+                                
+                                
+                                
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </body>
+</html>

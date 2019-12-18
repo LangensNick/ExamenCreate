@@ -1,0 +1,1895 @@
+/*------------------------------------*\
+#FONTS
+\*------------------------------------*/
+
+@font-face {
+    font-family: "Inter Web";
+    font-weight: 400;
+    src: url("../fonts/Inter-Regular.woff2") format("woff2")
+}
+
+@font-face {
+    font-family: "Inter Web";
+    font-weight: 600;
+    src: url("../fonts/Inter-SemiBold.woff2") format("woff2")
+}
+
+/*------------------------------------*\
+#Variables
+\*------------------------------------*/
+
+:root {
+    /* Global colors */
+    --global-color-alpha-light: #4F95FF;
+    --global-color-alpha: #3385FF;
+    --global-color-alpha-dark: #2E77E6;
+    --global-color-alpha-x-dark: #1B4186;
+    --global-color-alpha-transparent: #3385ffbf;
+    --global-color-alpha-x-transparent: #3385ff4d;
+
+    --global-color-neutral-xxxx-light: #F5F7FA;
+    --global-color-neutral-xxx-light: #E2E3E7;
+    --global-color-neutral-xx-light: #caccd4;
+    --global-color-neutral-x-light: #b5b6c0;
+    --global-color-neutral-light: #a0a1ad;
+    --global-color-neutral: #8b8c9a;
+    --global-color-neutral-dark: #757787;
+    --global-color-neutral-x-dark: #606274;
+    --global-color-neutral-xx-dark: #4b4c60;
+    --global-color-neutral-xxx-dark: #35374d;
+    --global-color-neutral-xxxx-dark: #20223a;
+    --global-color-black:black;
+    --global-color-gold: gold;
+
+    /* global page settings */
+    --global-html-color: var(--global-color-neutral-xxxx-dark);
+    --global-html-backgroundColor: var(--global-color-neutral-xxxx-light);
+    --global-selection-backgroundColor: var(--global-color-alpha);    
+
+    /* borders */
+    --global-borderRadius: 3px;
+    --global-borderWidth: 1px;
+    --global-borderRadius: 15px;
+
+    /* transitions */
+    --global-transitionTiming-alpha: .1s ease-out;
+
+    /* Baseline settings */
+    --global-baseline: 8px;         
+    --global-whitespace: calc(var(--global-baseline) * 3); /* = 24px */
+
+    --global-whitespace-xs: calc(var(--global-baseline) / 2); /* = 4px */
+    --global-whitespace-sm: calc(var(--global-baseline) * 1); /*  = 8px */
+    --global-whitespace-md: calc(var(--global-baseline) * 2); /*  = 16px */
+    --global-whitespace-lg: calc(var(--global-baseline) * 4); /*  = 32px */
+    --global-whitespace-xl: calc(var(--global-whitespace) * 2); /*  = 48px */
+    --global-whitespace-xxl: calc(var(--global-whitespace) * 3); /*  = 72px */
+
+    /* forms */
+    --global-placeholder-color: var(--global-color-neutral-x-light);
+    --global-input-backgroundColor: White;
+    --global-input-color: var(--global-color-neutral-xxxx-dark);
+    --global-input-borderColor: var(--global-color-neutral-xxx-light);
+    --global-input-hover-borderColor: var(--global-color-neutral-xx-light);
+    --global-input-focus-borderColor: var(--global-color-alpha);
+    --global-input-focus-boxShadowColor: var(--global-color-alpha-x-transparent);
+    --global-input-focus-boxShadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);
+
+    --global-color-error : red;
+    --global-input-error-borderColor: red;
+
+    /* star settings */
+    --star-goldPercentage:0%;
+
+}
+
+/*------------------------------------*\
+#GENERIC
+\*------------------------------------*/
+
+/*
+    Generic: Page
+    ---
+    Global page styles + universal box-sizing:
+*/
+
+html {
+    background-color: var(--global-html-backgroundColor);
+    color: var(--global-html-color);
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: 'Open Sans',sans-serif;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+body{
+    width: 100%;
+    height: 100vh;
+}
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+/*
+* Remove text-shadow in selection highlight:
+* https://twitter.com/miketaylr/status/12228805301
+*
+* Customize the background color to match your design.
+*/
+
+::-moz-selection {
+    background: var(--global-selection-backgroundColor);
+    color: white;
+    text-shadow: none;
+}
+
+::selection {
+    background: var(--global-selection-backgroundColor);
+    color: white;
+    text-shadow: none;
+}
+
+/*------------------------------------*\
+#Elements
+\*------------------------------------*/
+
+/*
+Elements: Images
+---
+Default markup for images to make them responsive
+*/
+
+img {
+    max-width: 100%;
+    vertical-align: top;
+}
+
+/*
+    Elements: typography
+    ---
+    Default markup for typographic elements
+*/
+
+h1,
+h2,
+h3 {
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 36px;
+    line-height: 48px;
+    margin: 0 0 var(--global-whitespace);
+}
+
+h2 {
+    font-size: 32px;
+    line-height: 40px;
+    margin: 0 0 var(--global-whitespace);
+}
+
+h3 {
+    font-size: 26px;
+    line-height: 32px;
+    margin: 0 0 var(--global-whitespace);
+}
+
+h4,
+h5,
+h6 {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    margin: 0 0 var(--global-whitespace);
+}
+
+p,
+ol,
+ul,
+dl,
+table,
+address,
+figure {
+    margin: 0 0 var(--global-whitespace);
+}
+
+ul,
+ol {
+    padding-left: var(--global-whitespace);
+}
+
+li ul,
+li ol {
+    margin-bottom: 0;
+}
+ul{
+    list-style-type: none;
+}
+
+blockquote {
+    font-style: normal;
+    font-size: 23px;
+    line-height: 32px;
+    margin: 0 0 var(--global-whitespace);
+}
+
+blockquote * {
+    font-size: inherit;
+    line-height: inherit;
+}
+
+figcaption {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    margin-top: var(--global-whitespace-sm);
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: LightGrey;
+    margin: 0 0 var(--global-whitespace);
+}
+
+a,
+a:visited {
+    transition: all var(--global-transitionTiming-alpha);
+    color: var(--global-color-alpha);
+    outline-color: var(--global-link-BoxShadowColor);
+    outline-width: medium;
+    outline-offset: 2px;
+}
+
+a:hover,
+a:focus {
+    color: var(--global-color-alpha-light);
+}
+
+a:active {
+    color: var(--global-color-alpha-dark);
+}
+
+label,
+input {
+    display: block;
+}
+
+select {
+    width: 100%;
+}
+
+input::placeholder {
+    color: var(--global-placeholder-color);
+}
+
+/*------------------------------------*\
+#OBJECTS
+\*------------------------------------*/
+
+/*
+    Objects: Row
+    ---
+    Creates a horizontal row that stretches the viewport and adds padding around children
+*/
+
+.o-row {
+    position: relative;
+}
+
+.o-row--login {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+/* size modifiers */
+
+.o-row--lg {
+    padding-top: var(--global-whitespace-xl);
+    padding-bottom: var(--global-whitespace);
+}
+
+.o-row--xl {
+    padding-top: var(--global-whitespace-xxl);
+    padding-bottom: var(--global-whitespace-xl);
+}
+
+@media (min-width: 992px) {
+    .o-row--xl {
+        padding-top: 96px;
+        padding-bottom: var(--global-whitespace-xxl);
+    }
+}
+
+/*
+    Objects: Container
+    ---
+    Creates a horizontal container that sets de global max-width
+*/
+
+.o-container {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 79.5em; /* 79.5 * 16px = 1272 */
+    width: 100%;
+}
+.o-container__movieFrame{
+    width: 80%;
+    height: 90%;
+    margin: auto;
+}
+
+/*
+    Objects: section
+    ---
+    Creates vertical whitespace between adjacent sections inside a row
+*/
+
+.o-section {
+    position: relative;
+}
+
+.o-section + .o-section {
+    padding-top: var(--global-whitespace);
+}
+
+@media (min-width: 768px) {
+    .o-section--lg + .o-section--lg,
+    .o-section--xl + .o-section--xl {
+        padding-top: var(--global-whitespace-xl);
+    }
+}
+
+@media (min-width: 992px) {
+    .o-section--xl + .o-section--xl {
+        padding-top: var(--global-whitespace-xxl);
+    }
+}
+
+/*
+    Objects: Layout
+    ---
+    The layout object provides us with a column-style layout system. This object
+    contains the basic structural elements, but classes should be complemented
+    with width utilities
+*/
+
+.o-layout {
+    display: flex;
+    flex-wrap: wrap;
+}
+.o-layout--nav{
+    display: block;
+}
+.o-layout__movieFrame{
+    transition: .1s ease-in-out;
+    height: 100vh;
+    width: 100%;
+}
+.o-layout__detailPage{
+    width: 100%;
+    
+    padding: 2em;
+    min-height: 100vh;
+    position: relative;
+}
+.o-layout__item {
+    width: 100%;
+}
+
+/* gutter modifiers, these affect o-layout__item too */
+
+.o-layout--gutter {
+    margin: 0 -12px;
+}
+
+.o-layout--gutter > .o-layout__item {
+    padding: 0 calc(var(--global-whitespace) / 2);
+}
+
+.o-layout--gutter-sm {
+    margin: 0 -6px;
+}
+
+.o-layout--gutter-sm > .o-layout__item {
+    padding: 0 6px;
+}
+
+.o-layout--gutter-lg {
+    margin: 0 -24px;
+}
+
+.o-layout--gutter-lg > .o-layout__item {
+    padding: 0 24px;
+}
+
+.o-layout--gutter-xl {
+    margin: 0 -48px;
+}
+
+.o-layout--gutter-xl > .o-layout__item {
+    padding: 0 var(--global-whitespace-xl);
+}
+
+/* reverse horizontal row modifier */
+
+.o-layout--row-reverse {
+    flex-direction: row-reverse;
+}
+
+/* Horizontal alignment modifiers*/
+
+.o-layout--justify-start {
+    justify-content: flex-start;
+}
+
+.o-layout--justify-end {
+    justify-content: flex-end;
+}
+
+.o-layout--justify-center {
+    justify-content: center;
+}
+
+.o-layout--justify-space-around {
+    justify-content: space-around;
+}
+
+.o-layout--justify-space-evenly {
+    justify-content: space-evenly;
+}
+
+.o-layout--justify-space-between {
+    justify-content: space-between;
+}
+
+/* Vertical alignment modifiers */
+
+.o-layout--align-start {
+    align-items: flex-start;
+}
+
+.o-layout--align-end {
+    align-items: flex-end;
+}
+
+.o-layout--align-center {
+    align-items: center;
+}
+
+.o-layout--align-baseline {
+    align-items: baseline;
+}
+
+/* Vertical alignment modifiers that only work if there is one than one flex item */
+
+.o-layout--align-content-start {
+    align-content: start;
+}
+
+.o-layout--align-content-end {
+    align-content: end;
+}
+
+.o-layout--align-content-center {
+    align-content: center;
+}
+
+.o-layout--align-content-space-around {
+    align-content: space-around;
+}
+
+.o-layout--align-content-space-between {
+    align-content: space-between;
+}
+
+/*
+    Objects: List
+    ---
+    Small reusable object to remove default list styling from lists
+*/
+
+.o-list {
+    list-style: none;
+    padding: 0;
+}
+
+/*
+    Object: Button reset
+    ---
+    Small button reset object
+*/
+
+.o-button-reset {
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    overflow: visible;
+    background: transparent;
+
+    /* inherit font & color from ancestor */
+    color: inherit;
+    font: inherit;
+
+    /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+    line-height: normal;
+
+    /* Corrects font smoothing for webkit */
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+
+    /* Corrects inability to style clickable `input` types in iOS */
+    -webkit-appearance: none;
+}
+
+/*
+    Object: Hide accessible
+    ---
+    Accessibly hide any element
+*/
+
+.o-hide-accessible {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+@media (min-width: 768px) {
+    .o-layout__movieFrame{
+        transition: .1s ease-in-out;
+        height: 100vh;
+        width: 100%;
+    }
+    .o-layout__detailPage{
+        width: 80%;
+        padding: 2em;
+        min-height: 100vh;
+        margin-left: 20%;
+        position: relative;
+    }
+}
+/*------------------------------------*\
+#COMPONENTS
+\*------------------------------------*/
+
+/*
+    Component: Logo
+    ---
+    Website main logo
+*/
+
+.c-logo {
+    --logo__path--1--Fill: var(--global-color-neutral-xxxx-dark);
+    --logo__path--2--Fill: var(--global-color-alpha);
+    --logo__path--3--Fill: var(--global-color-alpha-x-dark);
+    height: var(--global-whitespace);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--global-whitespace-xl);
+}
+
+.c-logo__symbol {
+    height: 100%;
+}
+
+.c-logo__path--1 {
+    fill: var(--logo__path--1--Fill);
+}
+
+.c-logo__path--2 {
+    fill: var(--logo__path--2--Fill);
+}
+
+.c-logo__path--3 {
+    fill: var(--logo__path--3--Fill);
+}
+
+/*
+    component: hamburger menu
+*/
+
+@media (max-width: 768px) {
+    
+    .nav-hamburger{
+        margin: 1em;
+        position: absolute;
+        cursor: pointer;
+        z-index: 55;
+        transition: var(--global-transitionTiming-alpha);
+    }
+    
+    .nav-hamburger > div{
+        width: 35px;
+        height: 5px;
+        background-color: black;
+        border-radius: 25px;
+        margin: 6px 0;
+        transition: var(--global-transitionTiming-alpha);
+    }
+    .nav-hamburger--open{
+        right:40%;
+    }
+    .nav-hamburger--open > .firstLine{
+        width: 50px;
+        height: 5px;
+        background-color: black;
+        transform: rotate(45deg) translatey(7px) translateX(8px);
+        transition: var(--global-transitionTiming-alpha);
+    }
+    .nav-hamburger--open > .secondLine{
+        width: 50px;
+        height: 5px;
+        background-color: black;
+        transform: rotate(-45deg);
+        transition: var(--global-transitionTiming-alpha);
+    }
+    .nav-hamburger--open > .thirdLine{
+        display: none;
+        transition: var(--global-transitionTiming-alpha);
+    }
+    .c-favorites__item{
+        transform: scale(0.7);
+    }
+    
+    
+}
+
+/*
+    Component: navfavorite
+    
+*/
+
+.c-favorites{
+    
+    transition: var(--global-transitionTiming-alpha);
+    display: none;
+}
+.c-favorites-mobile--open{
+    width: 60%;
+    height: 100vh;
+    background-color: white;
+    z-index: 50;
+    transition: var(--global-transitionTiming-alpha);
+
+    position: fixed;
+    display: inherit;
+}
+.c-favorites__header{
+    width: 100%;
+    height: 12%;
+    padding: 1.5em;
+    background: linear-gradient(262deg,#BBD2C5,#536976);
+    color: white;
+}
+.c-favorites__image{
+    cursor: pointer;
+    width: 10em;
+    border-radius: var(--global-borderRadius);
+
+}
+.c-favorites__movies--list{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: max-content;
+    position: absolute;
+    padding: 0;
+    overflow-y: scroll;
+    height: 88%;
+    max-width: 100%;
+    width: 100%;
+}
+.c-favorites__item{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height:38vh;
+    transform: scale(0.9);
+    padding: 1em 0 0 0;
+    margin: 0 auto ;
+    transition: var(--global-transitionTiming-alpha);
+}
+.c-favorites__image--tag{
+    white-space: initial;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.c-favorites__item--cross{
+    position: absolute;
+    padding: 0.5em 0.5em 0 0;
+    transition: 0.1s;
+}
+.c-favorites__item--cross:hover{
+    transition: ease-in-out 0.1s;
+    transform: scale(1.2);
+    cursor:pointer;
+
+}
+.c-favorites__item--top{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+/*
+    component: movie card
+
+*/
+
+
+.c-movieCard__frame{
+    display: inherit;
+}
+.c-movieCard{
+    display: block;
+    margin: auto;
+    width: 50%;
+    height: 90%;
+    position: relative;
+}
+.c-movieCard--image{
+    height: 100%;
+    width: 100%;
+    border-radius: var(--global-borderRadius);
+    cursor: pointer;
+}
+/*
+    Component: Card
+    ---
+    Card with box shadow
+*/
+.c-DetailPage--close{
+    width: 80%;
+    height: 15%;
+    position: absolute;
+}
+.c-card {
+    --card-backgroundColor: White;
+    --card__footer-borderColor: var(--global-color-neutral-xxx-light);
+    --card-borderRadius: var(--global-borderRadius);
+    background-color: var(--card-backgroundColor);
+    margin-bottom: var(--global-whitespace);
+    border-radius: var(--card-borderRadius);
+    box-shadow: 0 0 0 1px rgba(0,0,0, 0.05), 0 2px 4px rgba(0,0,0,.075);
+    overflow: hidden;
+}
+
+/* Add padding to child for more flexibility */
+.c-card__body,
+.c-card__footer {
+    padding: var(--global-whitespace) var(--global-whitespace) 0;
+    overflow: auto; /* Fix margin collapse */
+}
+
+.c-card__footer {   
+    text-align: center;
+    border-top: 1px solid var(--card__footer-borderColor);
+}
+
+.c-card__title {
+    text-align: center;
+    font-size: 18px;
+    line-height: var(--global-whitespace);
+    font-weight: 600;
+}
+
+@media (min-width: 768px) {
+    .c-movieCard{
+        width: 50%;
+    }
+    .c-movieCard__rating--name{
+        font-size: 1.5em;
+    }
+    .c-favorites{
+        width: 20%;
+        height: 100vh;
+        position: fixed;
+        display: inherit;
+    }
+    .c-detailPage__similarMovie--item{
+        height: 20em !important;
+        margin-bottom: 4em;
+    }
+    .o-layout__movieFrame{
+        transition: .1s ease-in-out;
+        height: 100vh;
+        width: 80%;
+        margin-left: 20%;
+    }
+    .c-DetailPage--close{
+        width: 95.5%;
+    }
+}
+
+
+
+@media (max-width: 768px) {
+    .c-movieCard{
+        width: 25em;
+    }
+    .c-movieCard__rating--name{
+        font-size: 1.5em;
+    }
+    
+}
+@media (min-width: 1250px) {
+    .c-movieCard{
+        width: 40%;
+    }
+    .c-movieCard__rating--name{
+        font-size: 2em;
+    }
+    
+    
+    
+}
+
+
+
+@media (min-width: 27em) {
+    .c-card__body {
+        padding: var(--global-whitespace-xl) var(--global-whitespace-xl) var(--global-whitespace);
+    }
+
+    .c-card__title {
+        margin-bottom: var(--global-whitespace-xl);
+    }
+}
+
+/*
+    Component: Forms
+    ---
+    Everything form related here
+*/
+
+.c-form-field--option {
+    display: flex;
+    align-items: center;
+}
+
+/*
+    Component: Input
+    ---
+    Class to put on all input="text" like form inputs
+*/
+.has-error {
+    --label-color: var(--global-color-error);
+    --input-borderColor: var(--global-input-error-borderColor);
+}
+
+.c-input {       
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    border: 1px solid var(--input-borderColor, var(--global-input-borderColor));
+    border-radius: var(--global-borderRadius);
+    background-color: var(--global-input-backgroundColor);
+    font-family: inherit;
+    font-size: 16px;
+    line-height: calc(var(--global-baseline) * 3);
+    padding: calc(var(--global-baseline) * 1.5 - var(--global-borderWidth)) var(--global-whitespace-md);
+    outline: none;
+    transition: border var(--global-transition-timing-alpha), box-shadow var(--global-transition-timing-alpha);
+}
+
+.c-input:hover {
+    border-color: var(--global-input-hover-borderColor);
+}
+
+.c-input:focus,
+.c-input:active {
+    border-color: var(--global-input-focus-borderColor);
+    box-shadow: var(--global-input-focus-boxShadow);
+}
+
+/*
+Input password with toggle checkbox on top of it needs
+more padding on the right to avoid overlap
+*/
+
+.c-input--password-with-toggle {
+    padding-right: 52px;
+}
+
+/* option input for checkboxes and radio buttons */
+.c-rating__symbol{
+    width: 20px;
+    height: 20px;
+}
+.c-radio--stars{
+
+}
+.c-custum-toggle--stars{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+.c-radio--stars:checked ~ .c-label  {
+    fill: var(--global-color-gold);
+}
+.c-option {
+    margin-right: var(--global-whitespace-sm);
+}
+.c-close {
+    opacity: 1;
+    width: 4em;
+    height: 4em;
+    transition: var(--global-transitionTiming-alpha);
+}
+.c-close:hover {
+    
+}
+.c-close:before, .c-close:after {
+    position: absolute;
+    content: ' ';
+    height: 33px;
+    width: 4px;
+    background-color: #FB725C;
+}
+.c-close:before {
+    transform: rotate(45deg);
+}
+.c-close:after {
+    transform: rotate(-45deg);
+}
+.c-divClose{
+    display: inherit;
+    height: 6em;
+    width: 6em;
+    background: white;
+    text-align: center;
+    margin: 2em 0em 2em 1em;
+    opacity: 1;
+    cursor: pointer;
+    border-radius: 100%;
+    box-shadow: 0px 3px 6px rgba(00,00,00,0.16);
+    transition: var(--global-transitionTiming-alpha);
+}
+.divClose--detailPage{
+    margin: -1em 0em 2em 1em;
+    transform: scale(0.7);
+}
+.c-divfavorite{
+    display: inherit;
+    height: 6em;
+    width: 6em;
+    background: white;
+    text-align: center;
+    opacity: 1;
+    margin: 2em 1em 2em 0em;
+    border-radius: 100%;
+    box-shadow: 0px 3px 6px rgba(00,00,00,0.16);
+    transition: var(--global-transitionTiming-alpha);
+}
+.Reject{
+    transform: rotate(-45deg) translate(-200%, -150%) scale(0.3);
+    transition: ease-in-out 1s;
+    opacity: 0;
+  }
+  
+  .favorite{
+    transform: rotate(45deg) translate(200%, -100%) scale(0.3);
+    transition: ease-in-out 1s;
+    opacity: 0;
+  }
+  /* Safari 4.0 - 8.0 */
+ 
+
+.c-close--svg{
+    margin: auto;
+    cursor: pointer;
+}
+.c-divfavorite:hover{
+    transform: scale(1.2);
+    transition: var(--global-transitionTiming-alpha);
+}
+.c-divClose:hover{
+    transform: scale(1.2);
+    transition: var(--global-transitionTiming-alpha);
+}
+.c-movieCard__imageRating{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+}
+.c-movieCard__rating--frame{
+    width: 100%;
+    height: 17%;
+    position: absolute;
+    bottom: 0em;
+}
+.c-movieCard-imageFrame{
+    position: relative;
+    cursor: pointer;
+    height: 80%;
+}
+.c-movieCard__rating--name{
+    color: white;
+    height: 50%;
+    margin: 0;
+    padding-left: 0.5em;
+}
+.c-movieCard__rating--stars{
+    font-size: 1em;
+    display: inline-block;
+    margin: 0;
+    height: 50%;
+    padding-left: 0.5em;
+    background: linear-gradient(to right, var(--global-color-gold) 70%, var(--global-color-black) 30%);
+    background-clip: text;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent;
+}
+.c-detailPage--image{
+    margin: auto;
+    height: 25em;
+}
+.c-detailPage--description{
+    width: 100%;
+    padding: 2em;
+    margin-top: 3em;
+}
+.c-detailPage--score{
+    font-size: 4em;
+    border: 1px solid black;
+    border-radius: 100%;
+    width: 4em;
+    text-align: center;
+    padding: 1em;
+    margin: auto;
+}
+.c-detailPage--title{
+    font-size: 2em;
+    padding-bottom: 1em;
+    text-align: center;
+}
+.c-detailPage--trailer{
+    width: 100%;
+    text-align: center;
+    margin: 3em 0;
+    background: #EBEBEB;
+}
+
+.c-detailPage__siliarMovie--title{
+    margin: 0 auto 1em auto;
+    font-size: 2em;
+}
+.c-detailPage__similarMovie--item{
+    cursor: pointer;
+    width: 30%;
+    box-shadow: 0 3px 6px;
+    height: 10em;
+}
+.c-detailPage__similarMovie--itemFrame{
+    margin: auto;
+    width: 100%;
+    height: 15em;
+}
+.c-detailPage__similarMovie--itemPicture{
+    background:url("https://images-na.ssl-images-amazon.com/images/I/91N1lG%2BLBIS._SL1500_.jpg");
+    height: 70%;
+    width: 100%;
+    background-size: cover;
+}
+.c-detailPage__similarMovie--itemInfoFrame{
+    height: 30%;
+}
+@media (min-width: 992px) {
+    .c-detailPage--description{
+        width: 50%;
+        padding: 2em;
+        margin: 3em auto 0 0;
+        height: 44em;
+    }
+    .c-detailPage__similarMovie--itemFrame{
+        margin: auto;
+        width: 70%;
+        height: 25em;
+    }
+    
+    .c-detailPage--image{
+        margin:5em 0 5em auto;
+        height: 40em;
+    }
+    
+    .c-divfavorite{
+        margin: 2em 2em 2em 0em;
+    }
+    .c-detailPage__similarMovie--item{
+        width: 20%;
+        box-shadow: 0 3px 6px;
+        height: 20em;
+    }
+    
+}
+@media (min-width: 768px) {
+    .c-movieCard__rating--stars{
+        font-size: 2em;
+    }
+    .c-divClose{
+        display: inherit;
+        height: 6em;
+        width: 6em;
+        background: white;
+        text-align: center;
+        margin: 2em 0em 2em 1em;
+        opacity: 1;
+        transform: scale(1);
+        cursor: pointer;
+        border-radius: 100%;
+        box-shadow: 0px 3px 6px rgba(00,00,00,0.16);
+        transition: var(--global-transitionTiming-alpha);
+    }
+    .c-detailPage--title{
+        padding-bottom: 1em;
+        text-align: left;
+    }
+    .c-detailPage-similarTitle{
+        font-size: 1.5em;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+}
+@media (max-width: 768px) {
+    .c-detailPage--Content{
+        margin-top: 5em;
+    }
+}
+
+
+/*
+    Component: Label
+    ---
+    Class to put on all form labels
+*/
+
+.c-label {
+    --label-color: var(--label-color, --global-color-neutral-xx-dark);
+    margin-bottom: 0;
+    padding-bottom: var(--global-whitespace-sm);
+    font-size: 14px;
+    line-height: 16px;
+    color: var(--label-color);
+    display: flex;
+    justify-content: space-between; 
+}
+
+.c-label--option {
+    padding-bottom: 0;
+}
+
+/*
+    Component: Button
+    ---
+    Class to put on form buttons or
+*/
+
+.c-button {    
+    --button-borderColor: var(--global-color-alpha-dark);
+    --button-hover-borderColor: var(--global-color-alpha-dark);
+    --button-active-borderColor: var(--global-color-alpha-dark);
+    --button-focus-borderColor:var(--global-color-alpha-dark);
+    --button-backgroundColor: var(--global-color-alpha);
+    --button-hover-backgroundColor: var(--global-color-alpha-light);
+    --button-active-backgroundColor: var(--global-color-alpha-dark);
+    --button-focus-backgroundColor: var(--global-color-alpha);    
+    --button-focus-boxShadow: var(--global-input-focus-boxShadow);
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: var(--global-borderRadius);
+    border: 1px solid var(--button-borderColor);
+    background-color: var(--button-backgroundColor);
+    color: #fff;
+    line-height: calc(var(--global-baseline) * 3);
+    padding: calc(var(--global-baseline) * 1.5 - var(--global-borderWidth)) var(--global-whitespace-md);
+    width: 100%;
+    outline: none;
+    box-shadow: var(--button-boxShadow, 0);
+    transition: all var(--global-transitionTiming-alpha) var(--global-transitionEasing-out);
+}
+
+.c-button:hover {
+    border-color: var(--button-hover-borderColor);
+    background-color: var(--button-hover-backgroundColor);
+}
+
+.c-button:focus {
+    background-color: var(--button-focus-backgroundColor);
+    border-color: var(--button-focus-borderColor);
+    box-shadow: var(--button-focus-boxShadow);
+}
+
+.c-button:active {
+    background-color: var(--button-active-backgroundColor);
+    border-color: var(--button-active-borderColor);
+    box-shadow: var(--button-active-boxShadow, 0);
+}
+
+/*
+    Component: Option list
+*/
+
+.c-option-list {
+    margin-bottom: var(--global-whitespace);
+}
+
+.c-option-list__item {
+    margin-bottom: calc(var(--global-whitespace) / 2);
+}
+
+/*
+    Custom option
+    ---
+    Custom checkboxes & radio buttons
+*/
+
+/* Hide the actual input with the class .o-hide-accessible */
+
+.c-custom-option {
+    --custom-option__symbol-Fill: var(--global-color-alpha);
+    display: flex;
+    align-items: center;
+}
+
+.c-custom-option__fake-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--global-whitespace-md);
+    height: var(--global-whitespace-md);
+    margin-right: var(--global-whitespace-sm);
+    background: var(--global-input-backgroundColor);
+    border: var(--global-borderWidth) solid var(--custom-option-borderColor, var(--global-input-borderColor));
+    box-shadow: var(--custom-option-boxShadow, 0);
+    transition: border var(--global-transitionTiming-alpha), box-shadow var(--global-transitionTiming-alpha);
+}
+
+.c-custom-option__fake-input--checkbox {
+    border-radius: var(--global-borderRadius);
+}
+
+.c-custom-option__fake-input--radio {
+    border-radius: 100%;
+}
+
+.c-custom-option__symbol {
+    display: block;
+    opacity: 0; /* Hide the symbol initially */
+    transform: scale(.5);
+    transition: transform var(--global-transitionTiming-alpha), opacity var(--global-transitionTiming-alpha);
+}
+
+.c-custom-option__fake-input--checkbox .c-custom-option__symbol {
+    width: 10px;
+    height: 10px;
+    fill: var(--custom-option__symbol-Fill);
+}
+
+.c-custom-option__fake-input--radio .c-custom-option__symbol {
+    background-color: var(--custom-option__symbol-Fill);
+    border-radius: 100%;
+    width: 6px;
+    height: 6px;
+}
+
+/* hover state */
+
+.c-custom-option:hover {
+    --custom-option-borderColor: var(--global-input-hover-borderColor);
+}
+
+/* focused and active state */
+
+.c-option--hidden:focus + .c-custom-option,
+.c-option--hidden:active + .c-custom-option {
+    --custom-option-borderColor: var(--global-input-focus-borderColor);
+    --custom-option-boxShadow: var(--global-input-focus-boxShadow);
+}
+
+/* checked state */
+
+.c-option--hidden:checked + .c-custom-option .c-custom-option__symbol {
+    opacity: 1; /* Show the symbol when the invisible checkbox/radio button is checked */
+    transform: scale(1);
+}
+
+/*
+    Component: Custom Toggle
+    ---
+    Visually change a checkbox into a toggle
+*/
+
+.c-custom-toggle-list {
+    --toggle-list-borderColor: var(--global-color-neutral-xxx-light);
+    margin-bottom: var(--global-whitespace);
+}
+
+.c-custom-toggle-list__item {
+    margin-bottom: calc(var(--global-whitespace) / 2);
+}
+
+.c-custom-toggle-list__item + .c-custom-toggle-list__item {
+    padding-top: calc(var(--global-whitespace) / 2);
+    border-top: 1px solid var(--toggle-list-borderColor);
+}
+
+.c-custom-toggle {
+    --toggle-backgroundColor: var(--global-color-neutral-xxxx-light);
+    --toggle-checked-borderColor: var(--global-color-alpha-dark);
+    --toggle-checked-backgroundColor: var(--global-color-alpha);
+    --toggle-focus-boxShadow: var(--global-input-focus-boxShadow);
+    --toggle__switch-backgroundColor: White;
+    --toggle__switch-checked-backgroundColor: White;
+    --toggle__switch-transition: all var(--global-transitionTiming-alpha);
+    display: flex;
+    align-items: center;
+}
+
+.c-custom-toggle--inverted {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+.c-custom-toggle__fake-input {
+    display: block;
+    height: 24px;
+    width: 48px;
+    margin-right: var(--global-whitespace-md);
+    background-color: var(--toggle-backgroundColor);
+    border-radius: 32px;
+    border: var(--global-borderWidth) solid var(--toggle-borderColor, var(--global-input-borderColor));
+    transition: all var(--global-transitionTiming-alpha);
+    box-shadow: var(--toggle-boxShadow, 0);
+}
+
+.c-custom-toggle--inverted .c-custom-toggle__fake-input {
+    margin-right: 0;
+}
+
+.c-custom-toggle__fake-input::after {
+    position: relative;
+    display: block;
+    content: '';
+    height: 22px;
+    width: 22px;
+    border-radius: 22px;
+    box-shadow: 0 1px 3px 1px rgba(0,0,0,.2);
+    background-color: var(--toggle__switch-backgroundColor);
+    transition: var(--toggle__switch-transition);
+}
+
+/* focused and active state */
+
+.c-option--hidden:focus + .c-custom-toggle,
+.c-option--hidden:active + .c-custom-toggle {
+    --toggle-borderColor: var(--global-input-focus-borderColor);
+    --toggle-boxShadow: var(--toggle-focus-boxShadow);
+}
+
+/* checked state */
+
+.c-option--hidden:checked + .c-custom-toggle {
+    --toggle-backgroundColor: var(--toggle-checked-backgroundColor);
+    --toggle-borderColor: var(--toggle-checked-borderColor);
+    --toggle__switch-backgroundColor: var(--toggle__switch-checked-backgroundColor);    
+}
+
+.c-option--hidden:checked + .c-custom-toggle .c-custom-toggle__fake-input::after {
+    transform: translate(24px,0);
+}
+
+/* special active state */
+
+.c-option--hidden:active + .c-custom-toggle .c-custom-toggle__fake-input::after {
+    width: 28px;
+}
+
+.c-option--hidden:active:checked + .c-custom-toggle .c-custom-toggle__fake-input::after {
+    margin-left: -6px;
+}
+/*
+    component: video
+*/
+@media (max-width: 768px) {
+    .c-detailVideo{
+        width: 20em;
+    }
+}
+
+/*
+    Component: Custom Select
+    ---
+    Custom select dropdown
+*/
+
+
+.c-custom-select {
+    display: block;
+    position: relative;
+}
+
+.c-custom-select__symbol {
+    width: var(--global-whitespace);
+    height: var(--global-whitespace);
+    position: absolute;
+    top: calc(var(--global-whitespace) / 2);
+    right: calc(var(--global-whitespace) / 2);
+    pointer-events: none;
+    fill: var(--global-color-neutral-x-light);
+}
+
+/*
+    Component: Password Toggle
+    ---
+    Password toggle custom checkbox
+*/
+.c-password-toggle-container{
+    display: inline-flex;
+    position: relative;
+    width: 100%;
+    justify-content: flex-end;
+
+}
+
+.c-password-svg{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    align-content: flex-end;
+    fill: var(--global-color-neutral-light);
+}
+.c-password-input{
+    width: 100%;
+    padding-right:14%;
+    position: absolute;
+}
+.c-password-svg-container{
+    width: 49px;
+    height: 46px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.c-password-svg--hide{
+    display: initial;
+}
+.c-password-svg--show{
+    display: none;
+}
+.c-password-toggle:checked + .c-password-svg-container .c-password-svg--hide{
+    display: none;
+}
+.c-password-toggle:checked + .c-password-svg-container .c-password-svg--show{
+    display: initial;
+}
+/*------------------------------------*\
+#UTILITIES
+\*------------------------------------*/
+
+/*
+    Utilities: color
+    ---
+    Utility classes to put specific colors onto elements
+*/
+
+.u-color-neutral {
+    color: var(--global-color-neutral);
+}
+
+.u-color-neutral-dark {
+    color: var(--global-color-neutral-dark);
+}
+/*
+    Utilities: spacing
+    ---
+    Utility classes to put specific margins and paddings onto elements
+*/
+.u-margin-reset{
+    margin: 0;
+}
+.u-padding-clear-force{
+    padding: 0 !important;
+}
+.u-pt-clear {
+    padding-top: 0 !important;
+}
+.u-pt-sm{
+    padding-top:1em;
+}
+.u-mb-clear {
+    margin-bottom: 0 !important;
+}
+
+.u-mb-xs {
+    margin-bottom: 4px !important;
+}
+
+.u-mb-sm {
+    margin-bottom: var(--global-whitespace-sm) !important;
+}
+
+.u-mb-md {
+    margin-bottom: var(--global-whitespace-md) !important;
+}
+
+.u-mb-lg {
+    margin-bottom: var(--global-whitespace-lg) !important;
+}
+
+.u-mb-xl {
+    margin-bottom: var(--global-whitespace-xl) !important;
+}
+
+/*
+    Utilities: max-width
+    ---
+    Utility classes to put specific max widths onto elements
+*/
+
+.u-max-width-xs {
+    max-width: 27em !important;
+}
+
+.u-max-width-sm {
+    max-width: 39em !important;
+}
+
+.u-max-width-md {
+    max-width: 50em !important;
+}
+
+.u-max-width-lg {
+    max-width: 63.5em !important;
+}
+
+.u-max-width-none {
+    max-width: none !important;
+}
+
+
+/*
+    Utilities: align
+    ---
+    Utility classes align text or components
+*/
+
+.u-align-text-center {
+    text-align: center;
+}
+
+.u-align-center {
+    margin: 0 auto;
+}
+
+/*
+    Utilities: text
+    Utility classes to create smaller or bigger test
+*/
+
+.u-text-sm {
+    font-size: 14px;
+}
+.u-font-sz-s{
+    font-size: 1em;
+}
+
+/*
+    Utility: Widths
+    ---
+    Utility classes to put specific widths onto elements
+    Will be mostly used on o-layout__item
+*/
+.u-display-none{
+    transition: .1s ease-in-out;
+    display: none;
+}
+.u-width-auto {
+    width: auto !important;
+}
+
+.u-1-of-2 {
+    width: 50% !important;
+}
+
+.u-1-of-3 {
+    width: 33.3333333333% !important;
+}
+
+.u-2-of-3 {
+    width: 66.6666666667% !important;
+}
+
+.u-1-of-4 {
+    width: 25% !important;
+}
+
+.u-3-of-4 {
+    width: 75% !important;
+}
+
+.u-1-of-5 {
+    width: 20% !important;
+}
+
+.u-2-of-5 {
+    width: 40% !important;
+}
+
+.u-3-of-5 {
+    width: 60% !important;
+}
+
+.u-4-of-5 {
+    width: 80% !important;
+}
+
+.u-1-of-6 {
+    width: 16.6666666667% !important;
+}
+
+.u-5-of-6 {
+    width: 83.3333333333% !important;
+}
+.u-1-of-1{
+    width: 100%;
+}
+
+@media (min-width: 576px) {
+    .u-1-of-2-bp1 {
+        width: 50% !important;
+    }
+    .u-1-of-3-bp1 {
+        width: 33.3333333333% !important;
+    }
+    .u-2-of-3-bp1 {
+        width: 66.6666666667% !important;
+    }
+    .u-1-of-4-bp1 {
+        width: 25% !important;
+    }
+    .u-3-of-4-bp1 {
+        width: 75% !important;
+    }
+    .u-1-of-5-bp1 {
+        width: 20% !important;
+    }
+    .u-2-of-5-bp1 {
+        width: 40% !important;
+    }
+    .u-3-of-5-bp1 {
+        width: 60% !important;
+    }
+    .u-4-of-5-bp1 {
+        width: 80% !important;
+    }
+    .u-1-of-6-bp1 {
+        width: 16.6666666667% !important;
+    }
+    .u-5-of-6-bp1 {
+        width: 83.3333333333% !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .u-1-of-2-bp2 {
+        width: 50% !important;
+    }
+    .u-1-of-3-bp2 {
+        width: 33.3333333333% !important;
+    }
+    .u-2-of-3-bp2 {
+        width: 66.6666666667% !important;
+    }
+    .u-1-of-4-bp2 {
+        width: 25% !important;
+    }
+    .u-3-of-4-bp2 {
+        width: 75% !important;
+    }
+    .u-1-of-5-bp2 {
+        width: 20% !important;
+    }
+    .u-2-of-5-bp2 {
+        width: 40% !important;
+    }
+    .u-3-of-5-bp2 {
+        width: 60% !important;
+    }
+    .u-4-of-5-bp2 {
+        width: 80% !important;
+    }
+    .u-1-of-6-bp2 {
+        width: 16.6666666667% !important;
+    }
+    .u-5-of-6-bp2 {
+        width: 83.3333333333% !important;
+    }
+    .u-font-sz-s{
+        font-size: 1.5em;
+    }
+}
+
+@media (min-width: 992px) {
+    .u-1-of-2-bp3 {
+        width: 50% !important;
+    }
+    .u-1-of-3-bp3 {
+        width: 33.3333333333% !important;
+    }
+    .u-2-of-3-bp3 {
+        width: 66.6666666667% !important;
+    }
+    .u-1-of-4-bp3 {
+        width: 25% !important;
+    }
+    .u-3-of-4-bp3 {
+        width: 75% !important;
+    }
+    .u-1-of-5-bp3 {
+        width: 20% !important;
+    }
+    .u-2-of-5-bp3 {
+        width: 40% !important;
+    }
+    .u-3-of-5-bp3 {
+        width: 60% !important;
+    }
+    .u-4-of-5-bp3 {
+        width: 80% !important;
+    }
+    .u-1-of-6-bp3 {
+        width: 16.6666666667% !important;
+    }
+    .u-5-of-6-bp3 {
+        width: 83.3333333333% !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    .u-1-of-2-bp4 {
+        width: 50% !important;
+    }
+    .u-1-of-3-bp4 {
+        width: 33.3333333333% !important;
+    }
+    .u-2-of-3-bp4 {
+        width: 66.6666666667% !important;
+    }
+    .u-1-of-4-bp4 {
+        width: 25% !important;
+    }
+    .u-3-of-4-bp4 {
+        width: 75% !important;
+    }
+    .u-1-of-5-bp4 {
+        width: 20% !important;
+    }
+    .u-2-of-5-bp4 {
+        width: 40% !important;
+    }
+    .u-3-of-5-bp4 {
+        width: 60% !important;
+    }
+    .u-4-of-5-bp4 {
+        width: 80% !important;
+    }
+    .u-1-of-6-bp4 {
+        width: 16.6666666667% !important;
+    }
+    .u-5-of-6-bp4 {
+        width: 83.3333333333% !important;
+    }
+}
+
+/*------------------------------------*\
+#MEDIA
+\*------------------------------------*/
+
+/*
+    Media Queries
+    ---
+    EXAMPLE Media Queries for Responsive Design.
+    These examples override the primary ('mobile first') styles.
+    USE THEM INLINE!
+*/
+
+/* Extra small devices (portrait phones, less than 576px)
+No media query since this is the default in mobile first design
+*/
+
+/* Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {}
+*/
+
+/* Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {}
+*/
+
+/* Large devices (landscape tablets, desktops, 992px and up)
+@media (min-width: 992px) {}
+*/
+
+/* Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {}
+*/
+
+/*
+    Print styles.
+    ---
+    Inlined to avoid the additional HTTP request:
+    http://www.phpied.com/delay-loading-your-print-css/
+*/
+
+@media print {
+    *,
+    *:before,
+    *:after {
+        background: transparent !important;
+        color: #000 !important;
+        /* Black prints faster:
+        http://www.sanbeiji.com/archives/953 */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+    /*
+    * Don't show links that are fragment identifiers,
+    * or use the `javascript:` pseudo protocol
+    */
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+        content: "";
+    }
+    pre {
+        white-space: pre-wrap !important;
+    }
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+    /*
+    * Printing Tables:
+    * http://css-discuss.incutio.com/wiki/Printing_Tables
+    */
+    thead {
+        display: table-header-group;
+    }
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
